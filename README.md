@@ -26,3 +26,5 @@ Second, Is there a better formula to generate clamp() for font-sizes or an indus
 
 Data
 Considering data is to be accessed by both the form component (to accept and store) and success component(to display). I believe the ideal location is to store globally and `useContext` to pass the data around.
+
+I need a variable to identify success ticket generated to help swap between form component and success component.

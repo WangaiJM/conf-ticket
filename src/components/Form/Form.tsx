@@ -1,13 +1,17 @@
 import Info from "../../assets/images/icon-info.svg";
-
+import Drag from "../../assets/images/icon-upload.svg";
 import "./form.scss";
 const Form = () => {
   return (
     <form>
-      <div className="form-control">
+      <div className="form-control ">
         <label htmlFor="avatar">Upload Avatar</label>
-        <input type="file" name="avatar" id="avatar" />
-        <span>
+        <div className="file-control">
+          <input type="file" name="avatar" id="avatar" />
+          <img src={Drag} alt="" />
+          <p>Drag and drop or click to upload</p>
+        </div>
+        <span className="file-span">
           <img src={Info} alt="" />
           Upload your photo (JPG or PNG, max size: 500KB).
         </span>

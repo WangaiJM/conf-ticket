@@ -25,6 +25,7 @@
   --spacing-050: 0.4rem;
   --spacing-075: 0.6rem;
   --spacing-100: 0.8rem;
+  --spacing-150: 1.2rem;
   --spacing-200: 1.6rem;
   --spacing-300: 2.4rem;
   --spacing-400: 3.2rem;
@@ -90,12 +91,12 @@ p {
   flex-direction: $direction;
 }
 @mixin breakpoint($media) {
-  @if media == "tablet" {
-    @media (min-width: 37.25rem) {
+  @if $media == "tablet" {
+    @media (min-width: 25rem) {
       @content;
     }
   } @else if $media == "desktop" {
-    @media (min-width: 56.75rem) {
+    @media (min-width: 56.25rem) {
       @content;
     }
   }
@@ -174,4 +175,45 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "inconsolata", sans-serif;
+  background-color: hsl(var(--neutral-900));
+  color: hsl(var(--neutral-0));
+  max-width: 110rem;
+  margin: auto;
+  min-height: 100dvh;
+  @include flex(column);
+  align-items: center;
+
+  padding: var(--spacing-200) var(--spacing-200);
+  @include breakpoint("tablet") {
+    padding: var(--spacing-200) var(--spacing-500);
+  }
+  @include breakpoint("desktop") {
+    padding: var(--spacing-200) var(--spacing-1000);
+  }
+}
+header {
+  @include flex(row);
+  justify-content: center;
+  padding-block: var(--spacing-700);
+}
+.intro {
+  @include flex(column);
+  gap: var(--spacing-200);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--spacing-500);
+
+  h2 {
+    @include text-preset-1("mobile");
+    @include breakpoint("desktop") {
+      @include text-preset-1("desktop");
+    }
+  }
+  p {
+    @include text-preset-4("mobile");
+    @include breakpoint("desktop") {
+      @include text-preset-4("desktop");
+    }
+  }
 }
