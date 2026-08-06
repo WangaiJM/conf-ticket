@@ -5,7 +5,56 @@
 
 :root {
   // colors
-  --white: 0, 0%, 100%;
+  --neutral-0: 0, 0%, 100%;
+  --neutral-300: 252, 6%, 83%;
+  --neutral-500: 245, 15%, 58%;
+  --neutral-700: 245, 19%, 35%;
+  --neutral-900: 248, 70%, 10%;
+
+  --orange-500: 7, 88%, 67%;
+  --orange-700: 7, 71%, 60%;
+
+  --gradient: linear-gradient(90deg, #f37362 0%, #fff 100%);
+
+  // spacing
+  --spacing-0: 0;
+  --spacing-025: 0.2rem;
+  --spacing-050: 0.4rem;
+  --spacing-075: 0.6rem;
+  --spacing-100: 0.8rem;
+  --spacing-200: 1.6rem;
+  --spacing-300: 2.4rem;
+  --spacing-400: 3.2rem;
+  --spacing-500: 4rem;
+  --spacing-600: 4.8rem;
+  --spacing-700: 5.6rem;
+  --spacing-800: 6.4rem;
+  --spacing-900: 7.2rem;
+  --spacing-1000: 8rem;
+
+  // typography
+  --fs-120: 1.2rem;
+  --fs-140: 1.4rem;
+  --fs-160: 1.6rem;
+  --fs-180: 1.8rem;
+  --fs-200: 2rem;
+  --fs-220: 2.2rem;
+  --fs-240: 2.4rem;
+  --fs-300: 3rem;
+  --fs-320: 3.2rem;
+  --fs-400: 4rem;
+  --fs-600: 6rem;
+
+  --fw-b: 700;
+  --fw-m: 500;
+  --fw-r: 400;
+
+  --lh-1: 1.1;
+  --lh-2: 1.2;
+
+  --ls-1: -0.3px;
+  --ls-2: -0.5px;
+  --ls-3: -1px;
 }
 *,
 *::before,
@@ -48,6 +97,74 @@ p {
     }
   }
 }
+
+@mixin text-preset-1($media) {
+  @if $media == "desktop" {
+    font-size: var(--fs-600);
+  } @else if $media == "mobile" {
+    font-size: var(--fs-300);
+  }
+  font-weight: var(--fw-b);
+  line-height: var(--lh-1);
+  letter-spacing: var(--ls-3);
+}
+
+@mixin text-preset-2($media) {
+  @if $media == "desktop" {
+    font-size: var(--fs-400);
+  } @else if $media == "mobile" {
+    font-size: var(--fs-240);
+  }
+  font-weight: var(--fw-b);
+  line-height: var(--lh-1);
+  letter-spacing: var(--ls-3);
+}
+@mixin text-preset-3($media) {
+  @if $media == "desktop" {
+    font-size: var(--fs-300);
+  } @else if $media == "mobile" {
+    font-size: var(--fs-220);
+  }
+  font-weight: var(--fw-b);
+  line-height: var(--lh-1);
+  letter-spacing: var(--ls-3);
+}
+@mixin text-preset-4($media) {
+  @if $media == "desktop" {
+    font-size: var(--fs-240);
+    font-weight: var(--fw-m);
+    letter-spacing: var(--ls-3);
+  } @else if $media == "mobile" {
+    font-size: var(--fs-200);
+    font-weight: var(--fw-r);
+    letter-spacing: var(--ls-2);
+  }
+  line-height: var(--lh-2);
+}
+@mixin text-preset-5 {
+  font-size: var(--fs-200);
+  font-weight: var(--fw-r);
+  line-height: var(--lh-1);
+  letter-spacing: var(--ls-1);
+}
+@mixin text-preset-6($media) {
+  @if $media == "desktop" {
+    font-size: var(--fs-180);
+  } @else if $media == "mobile" {
+    font-size: var(--fs-140);
+  }
+  font-weight: var(--fw-r);
+  line-height: var(--lh-2);
+  letter-spacing: 0;
+}
+
+@mixin text-preset-7 {
+  font-size: var(--fs-120);
+  font-weight: var(--fw-r);
+  line-height: var(--lh-2);
+  letter-spacing: var(--ls-1);
+}
+
 html {
   font-size: 62.5%;
 }
