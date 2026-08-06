@@ -2,7 +2,7 @@
 
 The project is part of my frontend mentor journey. The objective of the exercise today is to understand forms. Data Collection and validation. I'll be using react-typescript and sass for styling.
 
-Data: I will be handling data in three phases: collection, validation and presentation.
+I will be handling data in three phases: collection, validation and presentation.
 
 ## challenge
 
@@ -23,3 +23,6 @@ When decinding font-size, usually i have to think of text-presets ahead. The cha
 
 otherwise I think i will end up with to many utility classes. If there is a better way, kindly advice.
 Second, Is there a better formula to generate clamp() for font-sizes or an industry standard?
+
+Data
+Considering data is to be accessed by both the form component (to accept and store) and success component(to display). I believe the ideal location is to store globally and `useContext` to pass the data around.
