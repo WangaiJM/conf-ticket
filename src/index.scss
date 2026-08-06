@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "inconsolata";
+  src: url("./assets/fonts/Inconsolata-VariableFont_wdth\,wght.ttf");
+}
+
+:root {
+  // colors
+  --white: 0, 0%, 100%;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+picture,
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+input,
+textarea,
+select {
+  font: inherit;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+p {
+  line-height: 1.5;
+}
+@mixin flex($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
+@mixin breakpoint($media) {
+  @if media == "tablet" {
+    @media (min-width: 37.25rem) {
+      @content;
+    }
+  } @else if $media == "desktop" {
+    @media (min-width: 56.75rem) {
+      @content;
+    }
+  }
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  font-family: "inconsolata", sans-serif;
+}
