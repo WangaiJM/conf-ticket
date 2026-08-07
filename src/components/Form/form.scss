@@ -48,6 +48,15 @@ form {
       font-weight: 800;
     }
 
+    span {
+      display: none;
+
+      &.show {
+        display: block;
+        color: hsla(var(--orange-500));
+      }
+    }
+
     & .file-control {
       position: relative;
       border-radius: var(--spacing-150);
