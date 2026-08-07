@@ -55,6 +55,11 @@ form {
       border: var(--spacing-025) dashed hsl(var(--neutral-300));
       background-color: hsla(var(--neutral-0), 0.2);
 
+      &:focus-within,
+      &:hover {
+        border-color: hsla(var(--orange-500));
+      }
+
       img {
         position: absolute;
         top: var(--spacing-200);

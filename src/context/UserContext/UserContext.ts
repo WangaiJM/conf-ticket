@@ -2,10 +2,10 @@ import type React from "react";
 import { createContext } from "react";
 
 export type User = {
-  name: string;
+  fullName: string;
   email: string;
-  username: string;
-  avatar: string;
+  userName: string;
+  avatar: File | null;
 };
 
 export type UserContextType = {
