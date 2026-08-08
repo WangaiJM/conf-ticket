@@ -11,12 +11,40 @@ const Form = () => {
 
   const { addUser } = context;
 
+  // data collection
+
   const [formData, setFormData] = useState<User>({
     fullName: "",
     email: "",
     userName: "",
     avatar: null,
   });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] ?? null;
+
+    const errorMsg = validate("avatar", file);
+
+    setErrors((prev) => ({
+      ...prev,
+      avatar: errorMsg,
+    }));
+
+    setFormData((prev) => ({
+      ...prev,
+      avatar: file,
+    }));
+  };
+
+  // data vallidation
 
   type Errors = {
     fullName?: string;
@@ -110,29 +138,7 @@ const Form = () => {
     }));
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] ?? null;
-
-    const errorMsg = validate("avatar", file);
-
-    setErrors((prev) => ({
-      ...prev,
-      avatar: errorMsg,
-    }));
-
-    setFormData((prev) => ({
-      ...prev,
-      avatar: file,
-    }));
-  };
+  // data storage
 
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
