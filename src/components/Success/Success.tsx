@@ -46,10 +46,10 @@ const Success = () => {
   }
 
   return (
-    <section className="success">
+    <section className="success" aria-label="Ticket confirmation">
       <div className="success-user">
         <div className="success-user__head">
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="Coding Conf logo" />
           <p>
             <span className="date">Jan 31, 2025</span> /{" "}
             <span className="location">Austin, TX</span>
@@ -60,13 +60,13 @@ const Success = () => {
           <div className="user">
             <h3>{user.fullName}</h3>
             <div>
-              <img src={Github} alt="github" />
+              <img src={Github} alt="GitHub icon" />
               <p>{user.userName}</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="success-id">
+      <div className="success-id" role="status" aria-live="polite">
         <h2>#{user.id}</h2>
       </div>
     </section>

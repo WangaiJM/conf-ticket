@@ -174,7 +174,11 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      aria-label="Conference ticket registration form"
+      noValidate
+    >
       <div className="form-control ">
         <label htmlFor="avatar">Upload Avatar</label>
         <div className="file-control">
@@ -183,25 +187,29 @@ const Form = () => {
             name="avatar"
             id="avatar"
             accept="image/jpeg, image/png"
+            aria-describedby={`avatar-error avatar-hint`}
+            aria-invalid={Boolean(errors.avatar)}
+            aria-required="true"
             onChange={handleFileChange}
             onBlur={handleBlur}
           />
-          <img src={Drag} alt="" />
+          <img src={Drag} alt="Upload icon" />
           {formData.avatar ? (
             <p>{formData.avatar.name}</p>
           ) : (
             <p>Drag and drop or click to upload</p>
           )}
         </div>
-        {!formData.avatar && (
-          <span className="file-span">
-            <img src={Info} alt="" />
-            Upload your photo (JPG or PNG, max size: 500KB).
-          </span>
-        )}
+        <span className="file-span" id="avatar-hint">
+          <img src={Info} alt="Information" />
+          Upload your photo (JPG or PNG, max size: 500KB).
+        </span>
         <span
           className={`errorMsg ${errors.avatar ? "show" : ""}`}
           id="avatar-error"
+          role="alert"
+          aria-live="polite"
+          aria-atomic="true"
         >
           {errors.avatar}
         </span>
@@ -215,10 +223,18 @@ const Form = () => {
           value={formData.fullName}
           onChange={handleChange}
           onBlur={handleBlur}
+          autoComplete="name"
+          aria-describedby="fullName-error"
+          aria-invalid={Boolean(errors.fullName)}
+          aria-required="true"
+          required
         />
         <span
           className={`errorMsg ${errors.fullName ? "show" : ""}`}
           id="fullName-error"
+          role="alert"
+          aria-live="polite"
+          aria-atomic="true"
         >
           {errors.fullName}
         </span>
@@ -233,10 +249,18 @@ const Form = () => {
           value={formData.email}
           onChange={handleChange}
           onBlur={handleBlur}
+          autoComplete="email"
+          aria-describedby="email-error"
+          aria-invalid={Boolean(errors.email)}
+          aria-required="true"
+          required
         />
         <span
           className={`errorMsg ${errors.email ? "show" : ""}`}
           id="email-error"
+          role="alert"
+          aria-live="polite"
+          aria-atomic="true"
         >
           {errors.email}
         </span>
@@ -251,15 +275,21 @@ const Form = () => {
           value={formData.userName}
           onChange={handleChange}
           onBlur={handleBlur}
+          autoComplete="username"
+          aria-describedby="userName-error"
+          aria-invalid={Boolean(errors.userName)}
+          aria-required="true"
+          required
         />
         <span
           className={`errorMsg ${errors.userName ? "show" : ""}`}
           id="userName-error"
+          role="alert"
+          aria-live="polite"
+          aria-atomic="true"
         >
           {errors.userName}
         </span>
-
-        <span></span>
       </div>
       <div className="form-control">
         <button className="btn" type="submit">
