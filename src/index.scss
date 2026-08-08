@@ -191,19 +191,33 @@ body {
     padding: var(--spacing-200) var(--spacing-1000);
   }
 }
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 header {
   @include flex(row);
   justify-content: center;
   padding-block: var(--spacing-700);
 }
 .intro {
-  @include flex(column);
-  gap: var(--spacing-200);
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   margin-bottom: var(--spacing-500);
-
+  & > div {
+    @include flex(column);
+    gap: var(--spacing-200);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #name {
+    background: var(--gradient);
+    background-clip: text;
+    color: transparent;
+  }
+  #email {
+    color: hsl(var(--orange-700));
+  }
   h2 {
     @include text-preset-1("mobile");
     @include breakpoint("desktop") {

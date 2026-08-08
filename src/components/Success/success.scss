@@ -1,1 +1,127 @@
 @use "../../index.scss" as *;
+
+.success {
+  display: grid;
+
+  grid-template-columns: 80% 20%;
+  border: var(--spacing-025) solid hsl(var(--orange-500));
+  border-radius: var(--spacing-150);
+  background-color: hsl(var(--neutral-700));
+  height: 16rem;
+  @include breakpoint("tablet") {
+    height: 28rem;
+  }
+  max-width: 60rem;
+
+  &-user {
+    position: relative;
+    @include flex(column);
+    justify-content: space-between;
+    padding: var(--spacing-300);
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      width: var(--spacing-500);
+      height: var(--spacing-500);
+      background-color: hsl(var(--neutral-900));
+      border: var(--spacing-025) solid hsl(var(--orange-500));
+      border-radius: 50%;
+    }
+    &::after {
+      bottom: calc(-0.5 * var(--spacing-500));
+      right: calc(-0.5 * var(--spacing-500));
+      clip-path: inset(45% 45% 0% 0%);
+      transform: rotate(180deg);
+    }
+    &::before {
+      top: calc(-0.5 * var(--spacing-500));
+      right: calc(-0.5 * var(--spacing-500));
+      clip-path: inset(45% 45% 0% 0%);
+    }
+
+    &__head {
+      p {
+        @include text-preset-6("mobile");
+        @include breakpoint("tablet") {
+          @include text-preset-6("desktop");
+        }
+      }
+    }
+    &__body {
+      @include flex(row);
+      gap: var(--spacing-200);
+      align-items: center;
+
+      img {
+        height: var(--spacing-500);
+        width: var(--spacing-500);
+
+        @include breakpoint("tablet") {
+          height: var(--spacing-1000);
+          width: var(--spacing-1000);
+        }
+      }
+      .user {
+        h3 {
+          @include text-preset-6("mobile");
+          @include breakpoint("tablet") {
+            @include text-preset-3("desktop");
+          }
+          font-weight: var(--fw-b);
+        }
+        div {
+          @include flex(row);
+          gap: var(--spacing-200);
+
+          img {
+            height: var(--neutral-300);
+            width: var(--neutral-300);
+          }
+
+          p {
+            @include text-preset-6("mobile");
+            @include breakpoint("tablet") {
+              @include text-preset-3("desktop");
+            }
+          }
+        }
+      }
+    }
+  }
+  &-id {
+    position: relative;
+    display: grid;
+    place-items: center;
+    border-left: var(--spacing-025) dashed hsl(var(--neutral-500));
+
+    h2 {
+      rotate: 90deg;
+      color: hsl(var(--neutral-500));
+    }
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      width: var(--spacing-500);
+      height: var(--spacing-500);
+      background-color: hsl(var(--neutral-900));
+      border: var(--spacing-025) solid hsl(var(--orange-500));
+      border-radius: 50%;
+    }
+    &::after {
+      top: calc(-0.5 * var(--spacing-500));
+      left: calc(-0.5 * var(--spacing-500));
+      clip-path: inset(45% 0% 0% 45%);
+      //   background-color: green;
+    }
+    &::before {
+      bottom: calc(-0.5 * var(--spacing-500));
+      left: calc(-0.5 * var(--spacing-500));
+      clip-path: inset(0% 45% 45% 0%);
+      // background-color: red;
+    }
+  }
+}

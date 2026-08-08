@@ -9,9 +9,9 @@ export type User = {
 };
 
 export type UserContextType = {
-  user: User[];
+  users: User[];
   addUser: (user: User) => void;
-  setUser: React.Dispatch<React.SetStateAction<User[]>>;
+  setUsers: React.Dispatch<React.SetStateAction<User[]>>;
 };
 
 export const UserContext = createContext<UserContextType | null>(null);
