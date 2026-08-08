@@ -9,9 +9,13 @@
   background-color: hsl(var(--neutral-700));
   height: 16rem;
   @include breakpoint("tablet") {
+    width: minmax(auto, 60rem);
     height: 28rem;
   }
-  max-width: 60rem;
+  @include breakpoint("desktop") {
+    width: 60rem;
+    height: 28rem;
+  }
 
   &-user {
     position: relative;

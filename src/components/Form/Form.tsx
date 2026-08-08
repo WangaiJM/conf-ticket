@@ -137,6 +137,26 @@ const Form = () => {
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const newErrors: Errors = {};
+
+    const fullNameErr = validate("fullName", formData.fullName);
+    if (fullNameErr) newErrors.fullName = fullNameErr;
+
+    const emailErr = validate("email", formData.email);
+    if (emailErr) newErrors.email = emailErr;
+
+    const userNameErr = validate("userName", formData.userName);
+    if (userNameErr) newErrors.userName = userNameErr;
+
+    const avatarErr = validate("avatar", formData.avatar);
+    if (avatarErr) newErrors.avatar = avatarErr;
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      return;
+    }
+
     addUser(formData);
 
     setFormData({

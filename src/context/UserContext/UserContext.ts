@@ -2,6 +2,7 @@ import type React from "react";
 import { createContext } from "react";
 
 export type User = {
+  id?: number;
   fullName: string;
   email: string;
   userName: string;
@@ -11,6 +12,7 @@ export type User = {
 export type UserContextType = {
   users: User[];
   addUser: (user: User) => void;
+  getUser: (id?: number) => User;
   setUsers: React.Dispatch<React.SetStateAction<User[]>>;
 };
 

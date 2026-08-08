@@ -28,3 +28,5 @@ Data
 Considering data is to be accessed by both the form component (to accept and store) and success component(to display). I believe the ideal location is to store globally and `useContext` to pass the data around.
 
 I need a variable to identify success ticket generated to help swap between form component and success component.
+
+Instead of mapping user to success, real application cannot behave like that, I will create an id to the user, on adding the user assign a random (for this application) 5 digit number as id, on success, find the number and display the ticket
